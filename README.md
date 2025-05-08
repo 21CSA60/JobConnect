@@ -120,27 +120,27 @@ Email: [recruiter@example.com](mailto:recruiter@example.com)
 
 1. **As a Candidate**:
 
-1. Browse available jobs
-2. Apply for jobs with your resume
-3. Track your application status
-4. Update your profile
+    1. Browse available jobs
+    2. Apply for jobs with your resume
+    3. Track your application status
+    4. Update your profile
 
 
 
 2. **As an Employer**:
 
-1. Post new job listings
-2. Review applications
-3. Shortlist candidates
-4. Manage your company profile
+    1. Post new job listings
+    2. Review applications
+    3. Shortlist candidates
+    4. Manage your company profile
 
 
 
 3. **As a Recruiter**:
 
-1. Review candidate applications
-2. Provide feedback
-3. Shortlist or reject candidates
+    1. Review candidate applications
+    2. Provide feedback
+    3. Shortlist or reject candidates
 
 
 
