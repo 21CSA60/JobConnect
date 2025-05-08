@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "../../contexts/AuthContext"
-import { Briefcase, Menu, X, User, LogOut } from "lucide-react"
+import { GraduationCap, Menu, X, User, LogOut } from "lucide-react"
 
 const Navbar = () => {
   const { currentUser, logout, isAuthenticated } = useAuth()
@@ -36,7 +36,8 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <Briefcase className="h-8 w-8 text-blue-600" />
+           
+            <GraduationCap className="h-8 w-8 text-blue-600" />
               <span className="ml-2 text-xl font-bold text-gray-900">JobConnect</span>
             </Link>
           </div>
