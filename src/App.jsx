@@ -53,6 +53,7 @@ import CreateJobPost from "./pages/employer/CreateJobPost"
 import JobApply from "./pages/candidate/JobApply"
 import ShortlistedCandidates from "./pages/employer/ShortlistedCandidates"
 import CandidateReview from "./pages/recruiter/CandidateReview"
+import ProfilePage from "./pages/profile/ProfilePage"
 
 // Layout
 import Layout from "./components/layout/Layout"
@@ -70,6 +71,7 @@ function App() {
               <Route path="/jobs/:id" element={<JobDetails />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/profile" element={<ProfilePage />} />
 
               {/* Candidate Routes */}
               <Route
