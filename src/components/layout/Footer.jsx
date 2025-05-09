@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Briefcase, Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
+import { Facebook, Twitter, Instagram, Linkedin, GraduationCap } from "lucide-react"
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center">
-              <Briefcase className="h-8 w-8 text-blue-400" />
+              <GraduationCap className="h-8 w-8 text-blue-400" />
               <span className="ml-2 text-xl font-bold">JobConnect</span>
             </Link>
             <p className="mt-4 text-sm text-gray-300">Connecting the right talent with the right opportunities.</p>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { useJob } from "../contexts/JobContext"
 import JobCard from "../components/job/JobCard"
 import { Briefcase, Search, Building, Users } from "lucide-react"
+import CountUp from "react-countup";
 
 const Home = () => {
   const { jobs, loading } = useJob()
@@ -50,7 +51,7 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-gray-50">
+      {/* <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
@@ -78,10 +79,49 @@ const Home = () => {
             </div>
           </div>
         </div>
+      </section> */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Jobs Available */}
+            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600 mb-4">
+                <Briefcase className="h-6 w-6" />
+              </div>
+              <h3 className="text-3xl font-bold text-gray-900">
+                <CountUp end={1000} duration={2} separator="," />+
+              </h3>
+              <p className="text-gray-600">Jobs Available</p>
+            </div>
+
+            {/* Companies */}
+            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600 mb-4">
+                <Building className="h-6 w-6" />
+              </div>
+              <h3 className="text-3xl font-bold text-gray-900">
+                <CountUp end={500} duration={2} separator="," />+
+              </h3>
+              <p className="text-gray-600">Companies</p>
+            </div>
+
+            {/* Candidates */}
+            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-md bg-blue-100 text-blue-600 mb-4">
+                <Users className="h-6 w-6" />
+              </div>
+              <h3 className="text-3xl font-bold text-gray-900">
+                <CountUp end={10000} duration={2.5} separator="," />+
+              </h3>
+              <p className="text-gray-600">Candidates</p>
+            </div>
+          </div>
+        </div>
       </section>
 
+
       {/* Featured Jobs Section */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-extrabold text-gray-900 mb-4">Featured Jobs</h2>

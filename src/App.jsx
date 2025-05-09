@@ -1,34 +1,147 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
+// // import { useState } from 'react'
+// // import reactLogo from './assets/react.svg'
+// // import viteLogo from '/vite.svg'
+// // import './App.css'
+
+// // function App() {
+// //   const [count, setCount] = useState(0)
+
+// //   return (
+// //     <>
+// //       <div>
+// //         <a href="https://vite.dev" target="_blank">
+// //           <img src={viteLogo} className="logo" alt="Vite logo" />
+// //         </a>
+// //         <a href="https://react.dev" target="_blank">
+// //           <img src={reactLogo} className="logo react" alt="React logo" />
+// //         </a>
+// //       </div>
+// //       <h1>Vite + React</h1>
+// //       <div className="card">
+// //         <button onClick={() => setCount((count) => count + 1)}>
+// //           count is {count}
+// //         </button>
+// //         <p>
+// //           Edit <code>src/App.jsx</code> and save to test HMR
+// //         </p>
+// //       </div>
+// //       <p className="read-the-docs">
+// //         Click on the Vite and React logos to learn more
+// //       </p>
+// //     </>
+// //   )
+// // }
+
+// // export default App
+// import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
+// import { AuthProvider } from "./contexts/AuthContext"
+// import { JobProvider } from "./contexts/JobContext"
+// import ProtectedRoute from "./components/common/ProtectedRoute"
+
+// // Public Pages
+// import Home from "./pages/Home"
+// import AllJobs from "./pages/AllJobs"
+// import Login from "./pages/Login"
+// import Signup from "./pages/Signup"
+// import JobDetails from "./pages/JobDetails"
+
+// // Role-Based Protected Pages
+// import CandidateDashboard from "./pages/candidate/CandidateDashboard"
+// import EmployerDashboard from "./pages/employer/EmployerDashboard"
+// import RecruiterDashboard from "./pages/recruiter/RecruiterDashboard"
+// import CreateJobPost from "./pages/employer/CreateJobPost"
+// import JobApply from "./pages/candidate/JobApply"
+// import ShortlistedCandidates from "./pages/employer/ShortlistedCandidates"
+// import CandidateReview from "./pages/recruiter/CandidateReview"
+// import ProfilePage from "./pages/profile/ProfilePage"
+
+// // Layout
+// import Layout from "./components/layout/Layout"
 
 // function App() {
-//   const [count, setCount] = useState(0)
-
 //   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.jsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
+//     <Router>
+//       <AuthProvider>
+//         <JobProvider>
+//           <Layout>
+//             <Routes>
+//               {/* Public Routes */}
+//               <Route path="/" element={<Home />} />
+//               <Route path="/jobs" element={<AllJobs />} />
+//               <Route path="/jobs/:id" element={<JobDetails />} />
+//               <Route path="/login" element={<Login />} />
+//               <Route path="/signup" element={<Signup />} />
+//               <Route path="/profile" element={<ProfilePage />} />
+
+//               {/* Candidate Routes */}
+//               <Route
+//                 path="/candidate/dashboard"
+//                 element={
+//                   <ProtectedRoute allowedRoles={["candidate"]}>
+//                     <CandidateDashboard />
+//                   </ProtectedRoute>
+//                 }
+//               />
+//               <Route
+//                 path="/jobs/:id/apply"
+//                 element={
+//                   <ProtectedRoute allowedRoles={["candidate"]}>
+//                     <JobApply />
+//                   </ProtectedRoute>
+//                 }
+//               />
+
+//               {/* Employer Routes */}
+//               <Route
+//                 path="/employer/dashboard"
+//                 element={
+//                   <ProtectedRoute allowedRoles={["employer"]}>
+//                     <EmployerDashboard />
+//                   </ProtectedRoute>
+//                 }
+//               />
+//               <Route
+//                 path="/employer/create-job"
+//                 element={
+//                   <ProtectedRoute allowedRoles={["employer"]}>
+//                     <CreateJobPost />
+//                   </ProtectedRoute>
+//                 }
+//               />
+//               <Route
+//                 path="/employer/shortlisted"
+//                 element={
+//                   <ProtectedRoute allowedRoles={["employer"]}>
+//                     <ShortlistedCandidates />
+//                   </ProtectedRoute>
+//                 }
+//               />
+
+//               {/* Recruiter Routes */}
+//               <Route
+//                 path="/recruiter/dashboard"
+//                 element={
+//                   <ProtectedRoute allowedRoles={["recruiter"]}>
+//                     <RecruiterDashboard />
+//                   </ProtectedRoute>
+//                 }
+//               />
+//               <Route
+//                 path="/recruiter/review/:id"
+//                 element={
+//                   <ProtectedRoute allowedRoles={["recruiter"]}>
+//                     <CandidateReview />
+//                   </ProtectedRoute>
+//                 }
+//               />
+
+//               {/* Fallback Route */}
+//               <Route path="*" element={<Navigate to="/" />} />
+//             </Routes>
+//           </Layout>
+//         </JobProvider>
+//       </AuthProvider>
+//     </Router>
 //   )
 // }
 
@@ -53,6 +166,8 @@ import CreateJobPost from "./pages/employer/CreateJobPost"
 import JobApply from "./pages/candidate/JobApply"
 import ShortlistedCandidates from "./pages/employer/ShortlistedCandidates"
 import CandidateReview from "./pages/recruiter/CandidateReview"
+
+// User Profile
 import ProfilePage from "./pages/profile/ProfilePage"
 
 // Layout
@@ -71,7 +186,16 @@ function App() {
               <Route path="/jobs/:id" element={<JobDetails />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/profile" element={<ProfilePage />} />
+
+              {/* Profile Route - Accessible to all authenticated users */}
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute allowedRoles={["candidate", "employer", "recruiter"]}>
+                    <ProfilePage />
+                  </ProtectedRoute>
+                }
+              />
 
               {/* Candidate Routes */}
               <Route
@@ -131,6 +255,19 @@ function App() {
                 element={
                   <ProtectedRoute allowedRoles={["recruiter"]}>
                     <CandidateReview />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* Messages Route - Placeholder for future implementation */}
+              <Route
+                path="/messages"
+                element={
+                  <ProtectedRoute allowedRoles={["candidate", "employer", "recruiter"]}>
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+                      <h1 className="text-2xl font-bold mb-4">Messages</h1>
+                      <p className="text-gray-600">This feature is coming soon!</p>
+                    </div>
                   </ProtectedRoute>
                 }
               />
