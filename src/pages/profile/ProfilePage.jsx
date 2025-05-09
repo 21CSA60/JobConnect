@@ -717,17 +717,72 @@ const ProfilePage = () => {
         )}
 
         {activeTab === "notifications" && (
-          <div className="p-6 space-y-6">
-            <h2 className="text-lg font-semibold text-gray-900">Notification Preferences</h2>
-            {["email-notifications", "job-alerts", "application-updates"].map((id) => (
-              <label key={id} className="flex items-center gap-3 text-sm text-gray-700">
-                <input type="checkbox" className="accent-blue-600" defaultChecked /> {id.replace(/-/g, " ")}
-              </label>
-            ))}
-            <div className="flex justify-end">
+          <div className="p-6">
+            <h2 className="text-lg font-medium text-gray-900 mb-6">Notification Preferences</h2>
+            <div className="space-y-6">
+              <div className="flex items-start">
+                <div className="flex items-center h-5">
+                  <input
+                    id="email-notifications"
+                    name="email-notifications"
+                    type="checkbox"
+                    className="h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary"
+                    defaultChecked
+                  />
+                </div>
+                <div className="ml-3 text-sm">
+                  <label htmlFor="email-notifications" className="font-medium text-gray-700">
+                    Email Notifications
+                  </label>
+                  <p className="text-gray-500">
+                    Receive email notifications about new job matches and application updates.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="flex items-center h-5">
+                  <input
+                    id="job-alerts"
+                    name="job-alerts"
+                    type="checkbox"
+                    className="h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary"
+                    defaultChecked
+                  />
+                </div>
+                <div className="ml-3 text-sm">
+                  <label htmlFor="job-alerts" className="font-medium text-gray-700">
+                    Job Alerts
+                  </label>
+                  <p className="text-gray-500">Receive notifications when new jobs matching your skills are posted.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start">
+                <div className="flex items-center h-5">
+                  <input
+                    id="application-updates"
+                    name="application-updates"
+                    type="checkbox"
+                    className="h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary"
+                    defaultChecked
+                  />
+                </div>
+                <div className="ml-3 text-sm">
+                  <label htmlFor="application-updates" className="font-medium text-gray-700">
+                    Application Updates
+                  </label>
+                  <p className="text-gray-500">
+                    Receive notifications when there are updates to your job applications.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex justify-end">
               <button className="inline-flex items-center px-4 py-2 text-sm text-white bg-blue-600 rounded-md hover:bg-blue-700">
                 <Bell className="h-4 w-4 mr-2" /> Save Preferences
               </button>
+              </div>
             </div>
           </div>
         )}

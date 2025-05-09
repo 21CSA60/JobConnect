@@ -158,13 +158,43 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="flex justify-center">
-                <div className="h-12 w-32 bg-gray-200 rounded-md flex items-center justify-center text-gray-500 font-semibold">
-                  Partner {i + 1}
+        {/* Partner Logos */}
+            { [
+                {
+                  name: "Google",
+                  logo: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+                },
+                {
+                  name: "Amazon",
+                  logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png",
+                },
+                {
+                  name: "Microsoft",
+                  logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png",
+                },
+                {
+                  name: "Apple",
+                  logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/488px-Apple_logo_black.svg.png",
+                },
+                {
+                  name: "Meta",
+                  logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/2560px-Meta_Platforms_Inc._logo.svg.png",
+                },
+                {
+                  name: "Netflix",
+                  logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png",
+                },
+              ].map((partner, i) => (
+                <div key={i} className="flex justify-center">
+                  <div className="h-16 w-40 p-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 flex items-center justify-center">
+                    <img
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              )) }
           </div>
         </div>
       </section>
