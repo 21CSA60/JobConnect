@@ -1,5 +1,3 @@
-"use client"
-
 import { createContext, useState, useContext, useEffect } from "react"
 import { jwtDecode } from "jwt-decode"
 import api from "../services/api"
@@ -24,7 +22,7 @@ export const AuthProvider = ({ children }) => {
           setCurrentUser(null)
         } else {
           const userData = JSON.parse(localStorage.getItem("userData") || "{}")
-          // Convert any 'recruiter' role to 'employer'
+          // Convert any 'recruiter' role to 'employer' with isRecruiter flag
           if (userData.role === 'recruiter') {
             userData.role = 'employer'
             userData.isRecruiter = true

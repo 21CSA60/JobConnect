@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from "../contexts/AuthContext"
@@ -36,14 +34,12 @@ const Signup = () => {
     const file = e.target.files[0]
     if (file) {
       if (file.size > 5 * 1024 * 1024) {
-        // 5MB limit
         setError("Profile image must be less than 5MB")
         return
       }
 
       setProfileImage(file)
 
-      // Create preview URL
       const reader = new FileReader()
       reader.onloadend = () => {
         setPreviewImage(reader.result)
@@ -66,7 +62,6 @@ const Signup = () => {
     e.preventDefault()
     setError("")
 
-    // Basic validation
     if (!formData.fullName || !formData.email || !formData.password || !formData.gender || !formData.address) {
       setError("Please fill in all fields")
       return
@@ -80,7 +75,6 @@ const Signup = () => {
     try {
       setIsLoading(true)
 
-      // Include profile image in signup data
       const signupData = {
         ...formData,
         profileImage: profileImage,
@@ -88,7 +82,6 @@ const Signup = () => {
 
       await signup(signupData)
 
-      // Redirect based on user type
       if (formData.userType === "Employer") {
         navigate("/employer/dashboard")
       } else if (formData.userType === "Candidate") {
@@ -141,7 +134,7 @@ const Signup = () => {
                 {previewImage ? (
                   <div className="h-24 w-24 rounded-full overflow-hidden">
                     <img
-                      src={previewImage || "/placeholder.svg"}
+                      src={previewImage}
                       alt="Profile preview"
                       className="h-full w-full object-cover"
                     />

@@ -65,7 +65,7 @@ function App() {
                 }
               />
 
-              {/* Employer Routes (including former recruiter functionality) */}
+              {/* Employer Routes */}
               <Route
                 path="/employer/dashboard"
                 element={
@@ -119,5 +119,3 @@ function App() {
     </Router>
   )
 }
-
-export default App
